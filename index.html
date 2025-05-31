@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -51,25 +51,22 @@
     }
 
     .falling-text {
-  position: absolute;
-  white-space: nowrap;
-  font-size: 5vw;
-  color: #aaddff;
+      position: absolute;
+      white-space: nowrap;
+      font-size: 5vw;
 
-  /* Phát sáng */
-  text-shadow:
-    0 0 8px #aaddff,
-    0 0 12px #aaddff,
-    0 0 16px #aaddff;
+      /* Phát sáng và viền */
+      color: #ffffff;
+      text-shadow:
+        0 0 6px #fff,
+        0 0 12px #fff,
+        0 0 18px currentColor;
+      -webkit-text-fill-color: currentColor;
+      -webkit-text-stroke: 1px white;
 
-  /* Viền chữ */
-  -webkit-text-fill-color: #aaddff;
-  -webkit-text-stroke: 1px white;
-
-  animation: fall linear forwards;
-  will-change: transform;
-}
-
+      animation: fall linear forwards;
+      will-change: transform;
+    }
 
     @keyframes fall {
       0% {
@@ -93,33 +90,14 @@
   const starfield = document.getElementById("starfield");
 
   const messages = [
-    "I Love You",
-    "💖",
-    "Vũ Trường Giang",
-    "Lemmmmmmmm",
-    "Yêu béeee:3",
-    "Luv u bbiii",
-    "My love",
-    "sunshine",
-    "Come with me",
-    "❤️"
+    "I Love You", "💖", "Vũ Trường Giang", "Lemmmmmmmm",
+    "Yêu béeee:3", "Luv u bbiii", "My love", "Sunshine",
+    "Come with me", "❤️"
   ];
 
   const pinkShades = [
-    "#ff69b4", // hot pink
-    "#ffb6c1", // light pink
-    "#ffc0cb", // pink
-    "#db7093", // pale violet red
-    "#ff1493", // deep pink
-    "#c71585", // medium violet red
-    "#800080", // purple
-    "#9370DB", // medium purple
-    "#BA55D3", // medium orchid
-    "#DDA0DD", // plum
-    "#DA70D6", // orchid
-    "#EE82EE" , // violet
-    "#000000"
-    
+    "#ff69b4", "#ffb6c1", "#ffc0cb", "#db7093", "#ff1493", "#c71585",
+    "#800080", "#9370DB", "#BA55D3", "#DDA0DD", "#DA70D6", "#EE82EE"
   ];
 
   function createFallingText() {
@@ -128,7 +106,7 @@
     text.innerText = messages[Math.floor(Math.random() * messages.length)];
     text.style.left = Math.random() * window.innerWidth + "px";
     text.style.color = pinkShades[Math.floor(Math.random() * pinkShades.length)];
-    text.style.animationDuration = (6 + Math.random() * 3).toFixed(2) + "s"; // chậm hơn 50%
+    text.style.animationDuration = (6 + Math.random() * 3).toFixed(2) + "s";
     scene.appendChild(text);
 
     setTimeout(() => {
@@ -147,7 +125,7 @@
     }
   }
 
-  // Góc nhìn 3D xoay quanh trục Oxy khi chạm kéo
+  // Hiệu ứng xoay 3D khi chạm kéo
   let rotateX = 0;
   let rotateY = 0;
   let lastTouch = null;
@@ -169,9 +147,12 @@
     }
   });
 
+  // Khởi tạo
   createStars(100);
+
+  // Tạo chữ rơi liên tục, mật độ vừa phải
   setInterval(() => {
-    for (let i = 0; i < 5; i++) createFallingText();
+    for (let i = 0; i < 2; i++) createFallingText();
   }, 300);
 </script>
 
