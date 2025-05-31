@@ -51,24 +51,26 @@
     }
 
     .falling-text {
-      position: absolute;
-      white-space: nowrap;
-      font-size: 5vw;
-      color: #aaddff;
+  position: absolute;
+  white-space: nowrap;
+  font-size: 5vw;
+  color: #aaddff;
 
-  /* Phát sáng */
-      text-shadow:
-        0 0 8px #aaddff,
-        0 0 12px #aaddff,
-        0 0 16px #aaddff;
+  /* Phát sáng */
+  text-shadow:
+    0 0 8px #aaddff,
+    0 0 12px #aaddff,
+    0 0 16px #aaddff;
 
-  /* Viền chữ */
-      -webkit-text-fill-color: #aaddff;
-      -webkit-text-stroke: 1px white;
+  /* Viền chữ */
+  -webkit-text-fill-color: #aaddff;
+  -webkit-text-stroke: 1px white;
 
-      animation: fall linear forwards;
-      will-change: transform;
-      }
+  animation: fall linear forwards;
+  will-change: transform;
+}
+
+
     @keyframes fall {
       0% {
         top: -30px;
